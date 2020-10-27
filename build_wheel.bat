@@ -1,3 +1,4 @@
 pip install wheel
+del *.whl
 python setup.py bdist_wheel
-copy jobstatus\dist\* *
+copy dist\*

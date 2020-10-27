@@ -30,8 +30,11 @@ def get_status(job_name, check_author=True):
 
     col_list = status_df.columns
     
+    # got through all column names and create a 
+    # camelCase version of those column names
     json_col_list = []
     for cur_col in col_list:
+        # if we have _, we have tokens to split and capitalize
         if "_" in cur_col:
             cur_tokens = cur_col.split("_")
             final_col = cur_tokens[0].lower()
@@ -42,7 +45,11 @@ def get_status(job_name, check_author=True):
 
         json_col_list.append(final_col)    
 
+    # apply new column names to data fram
     status_df.columns = json_col_list
+
+    # convert results to list of dicts ( so it can be easily made to json )
+    results = status_df.to_dict(orient='records')
 
     return results
 
