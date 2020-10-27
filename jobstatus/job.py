@@ -44,11 +44,6 @@ def get_status(job_name, check_author=True):
 
     status_df.columns = json_col_list
 
-    print('status dict list')
-    results = status_df.to_dict(orient='records')
-    print(results)
-    print('end of job list')
-
     return results
 
 @bp.route('/<string:job_name>/status', methods=('GET', ))
