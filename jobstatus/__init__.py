@@ -10,8 +10,8 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        # DATABASE=os.path.join(app.instance_path, 'estrprd.sqlite'),
-        DATABASE='estrprd.sqlite',
+        DATABASE=os.path.join(app.instance_path, 'estrprd.sqlite'),
+        # DATABASE='estrprd.sqlite',
         STATUS_SQL="""
         select joid, job_name, run_machine, status, status_text, exit_code, status_time, status_timestr,
         last_start, last_end from est_jobst where job_name = '{}'         
