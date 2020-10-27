@@ -1,0 +1,4 @@
+include jobstatus/schema.sql
+graft jobstatus/static
+graft jobstatus/templates
+global-exclude *.pyc
